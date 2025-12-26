@@ -76,6 +76,10 @@ k1 = 2
 k2 = 3
 k3 = 5
 
+# کاهش تعداد تلاش‌ها برای افزایش سرعت (از ۱۰ به ۳)
+# Reducing attempts from 10 to 3 speeds up execution significantly (~3x faster kmeans)
+# while maintaining acceptable visual results for this use case.
+attempts = 3
 
 # ### مرحله نهم : انجام خوشه بندی با الگوریتم برای تعداد ۲ دسته
 
@@ -85,27 +89,27 @@ criteria = (cv.TERM_CRITERIA_EPS + cv.TERM_CRITERIA_MAX_ITER, 10, 1.0)
 
 # خوشه بندی تصویر اول با سه مقدار کا تعیین شده
 ret1_k1, label1_k1, center1_k1 = cv.kmeans(
-    image1, k1, None, criteria, 10, cv.KMEANS_RANDOM_CENTERS)
+    image1, k1, None, criteria, attempts, cv.KMEANS_RANDOM_CENTERS)
 ret1_k2, label1_k2, center1_k2 = cv.kmeans(
-    image1, k2, None, criteria, 10, cv.KMEANS_RANDOM_CENTERS)
+    image1, k2, None, criteria, attempts, cv.KMEANS_RANDOM_CENTERS)
 ret1_k3, label1_k3, center1_k3 = cv.kmeans(
-    image1, k3, None, criteria, 10, cv.KMEANS_RANDOM_CENTERS)
+    image1, k3, None, criteria, attempts, cv.KMEANS_RANDOM_CENTERS)
 
 # خوشه بندی تصویر دوم با سه مقدار کا تعیین شده
 ret2_k1, label2_k1, center2_k1 = cv.kmeans(
-    image2, k1, None, criteria, 10, cv.KMEANS_RANDOM_CENTERS)
+    image2, k1, None, criteria, attempts, cv.KMEANS_RANDOM_CENTERS)
 ret2_k2, label2_k2, center2_k2 = cv.kmeans(
-    image2, k2, None, criteria, 10, cv.KMEANS_RANDOM_CENTERS)
+    image2, k2, None, criteria, attempts, cv.KMEANS_RANDOM_CENTERS)
 ret2_k3, label2_k3, center2_k3 = cv.kmeans(
-    image2, k3, None, criteria, 10, cv.KMEANS_RANDOM_CENTERS)
+    image2, k3, None, criteria, attempts, cv.KMEANS_RANDOM_CENTERS)
 
 # خوشه بندی تصویر سوم با سه مقدار کا تعیین شده
 ret3_k1, label3_k1, center3_k1 = cv.kmeans(
-    image3, k1, None, criteria, 10, cv.KMEANS_RANDOM_CENTERS)
+    image3, k1, None, criteria, attempts, cv.KMEANS_RANDOM_CENTERS)
 ret3_k2, label3_k2, center3_k2 = cv.kmeans(
-    image3, k2, None, criteria, 10, cv.KMEANS_RANDOM_CENTERS)
+    image3, k2, None, criteria, attempts, cv.KMEANS_RANDOM_CENTERS)
 ret3_k3, label3_k3, center3_k3 = cv.kmeans(
-    image3, k3, None, criteria, 10, cv.KMEANS_RANDOM_CENTERS)
+    image3, k3, None, criteria, attempts, cv.KMEANS_RANDOM_CENTERS)
 
 
 # ### مرحله دهم : تبدیل داده های خوشه بندی به تصاویر
